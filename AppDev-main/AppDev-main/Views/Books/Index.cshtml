@@ -1,0 +1,82 @@
+﻿@model IEnumerable<AppDev.Models.Book>
+
+@{
+    ViewData["Title"] = "Books";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* Định nghĩa các màu chữ sáng nhiều màu tương tự như trang chủ */
+        .card-title {
+            color: blue; /* Màu trắng */
+        }
+
+        .fw-bold {
+            color: black; /* Màu trắng */
+        }
+
+        .btn-primary {
+            background-color: #33cc33; /* Màu nút xanh lá cây */
+            border-color: black; /* Màu viền xanh lá cây */
+            color: white; /* Màu trắng cho chữ trên nút */
+        }
+
+        .toast-header {
+            background-color: #ff5050; /* Màu nền tiêu đề toast đỏ */
+        }
+
+        /* Các quy tắc CSS khác của bạn */
+    </style>
+</head>
+<body>
+    <h1>BOOK LIST</h1>
+
+    <div class="row row-cols-xl-6 row-cols-lg-5 row-cols-md-4 row-cols-sm-3 row-cols-2">
+        @foreach (var item in Model)
+        {
+            <div class="col">
+                <div class="card h-100">
+                    <img src="@item.Image?.Href" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Title</h5>
+                        <p class="card-text">Price: <span class="fw-bold">&#36;@item.Price</span></p>
+                    </div>
+                    <div class="card-footer">
+                        <button name="addToCartBtn" class="btn btn-primary px-1" onclick="addItem(@item.Id, 1)">Add</button>
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary">Details</a>
+                    </div>
+                </div>
+            </div>
+            <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+                <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header">
+                        <strong class="me-auto" style="color: white;">Add to cart</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body">
+                        Successfully.
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</body>
+</html>
+
+@section Scripts {
+    <script src="~/js/cart.js" asp-append-version="true"></script>
+    <script type="text/javascript">
+        var addButtons = document.getElementsByName('addToCartBtn')
+        var toastLiveExample = document.getElementById('liveToast')
+        if (addButtons) {
+            addButtons.forEach(function (i) {
+                i.addEventListener('click', function () {
+                    var toast = new bootstrap.Toast(toastLiveExample)
+                    toast.show()
+                })
+            })
+        }
+    </script>
+}

@@ -1,0 +1,57 @@
+﻿@model IEnumerable<AppDev.Models.Order>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="btn btn-info">Orders</h1>
+
+<table class="table">
+    <thead>
+        <tr class="text-decoration-none text-white">
+            <th>
+                <!-- Thêm class "text-white" -->
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th >
+                <!-- Thêm class "text-white" -->
+                @Html.DisplayNameFor(model => model.Store)
+            </th>
+            <th>
+                <!-- Thêm class "text-white" -->
+                @Html.DisplayNameFor(model => model.TotalPrice)
+            </th>
+            <th>
+                <!-- Thêm class "text-white" -->
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class="text-decoration-none text-white">
+                <td>
+                    <!-- Thêm class "text-white" -->
+                @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    <!-- Thêm class "text-white" -->
+                @Html.DisplayFor(modelItem => item.Store.Name)
+                </td>
+                <td>
+                    <!-- Thêm class "text-white" -->
+                @Html.DisplayFor(modelItem => item.TotalPrice)
+                </td>
+                <td>
+                    <!-- Thêm class "text-white" -->
+                @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    <a class="btn btn-danger" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

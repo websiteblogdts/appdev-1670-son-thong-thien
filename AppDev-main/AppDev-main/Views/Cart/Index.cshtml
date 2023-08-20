@@ -1,0 +1,95 @@
+﻿@model IEnumerable<AppDev.Models.CartItem>
+
+@{
+    ViewData["Title"] = "Cart";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .btn-light {
+            background-color: white;
+            color: black;
+        }
+
+        .text-black {
+            color: black;
+        }
+
+        table.table th {
+            background-color: white;
+            color: black;
+        }
+
+        table.table tr.btn-light td {
+            background-color: white;
+            color: black;
+        }
+
+        /* Các quy tắc CSS khác của bạn */
+    </style>
+</head>
+<body>
+    <h1>Cart</h1>
+
+    <p>
+        <a asp-action="Checkout" class="btn btn-light">Checkout</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Book Title
+                </th>
+                <th>
+                    Quantity
+                </th>
+                <th>
+                    Price
+                </th>
+                <th>
+                    Total
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <!-- ... -->
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr class="text-decoration-none text-white">
+                    <td>
+                        <a asp-action="Details" asp-controller="Books" asp-route-id="@item.BookId">
+                            
+                          @Html.DisplayFor(modelItem => item.Book.Title)
+                        </a>
+                    </td>
+                  
+                    <td>
+                        <form asp-action="UpdateQuantity" asp-controller="Cart" method="post">
+                            <input type="hidden" name="itemId" value="@item.BookId" />
+                            <input type="number" min="1" value="@item.Quantity" name="newQuantity" />
+                            <button type="submit" class="btn btn-primary update-button">Update</button>
+                        </form>
+                   
+                        <form asp-action="RemoveItem" asp-controller="Cart" method="post">
+                            <input type="hidden" name="bookId" value="@item.BookId" />
+                            <input type="hidden" name="quantity" value="1" /> <!-- You can adjust the quantity as needed -->
+                            <button type="submit" class="btn btn-danger">Remove</button>
+                        </form>
+                    </td>
+                        
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Book.Price)
+                    </td>
+                    <td>
+                        @(item.Book.Price * item.Quantity)
+                    </td>
+                </tr>
+            }
+        </tbody>
+        <!-- ... -->
+    </table>
+</body>
+</html>

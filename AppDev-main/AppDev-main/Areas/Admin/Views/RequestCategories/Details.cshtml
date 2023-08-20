@@ -1,0 +1,56 @@
+﻿@model AppDev.Models.RequestCategory
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1 style="color: #ff5050;">Details</h1>
+
+<div>
+    <h4 style="color: #33cc33;">RequestCategory</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2" style="color: #cccccc;">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="col-sm-2" style="color: #cccccc;">
+            @Html.DisplayNameFor(model => model.StoreOwner)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.StoreOwner.FullName)
+        </dd>
+        <dt class="col-sm-2" style="color: #cccccc;">
+            @Html.DisplayNameFor(model => model.IsApproved)
+        </dt>
+        <dd class="col-sm-10">
+            @switch (Model.IsApproved)
+            {
+                case null:
+                    @Html.Raw("<span style='color: #ffcc66;'>Pending</span>")
+                    ;
+                    break;
+                case true:
+                    @Html.Raw("<span style='color: #33cc33;'>Yes</span>")
+                    ;
+                    break;
+                case false:
+                    @Html.Raw("<span style='color: #ff5050;'>No</span>")
+                    ;
+                    break;
+            }
+        </dd>
+        <dt class="col-sm-2" style="color: #cccccc;">
+            @Html.DisplayNameFor(model => model.Message)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Message)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Approve" asp-route-id="@Model?.Id" class="btn btn-success" style="background-color: #33cc33; color: #ffffff;">Approve</a>
+    <a asp-action="Index" class="btn btn-primary" style="background-color: #ffcc66; color: #ffffff;">Back to List</a>
+</div>

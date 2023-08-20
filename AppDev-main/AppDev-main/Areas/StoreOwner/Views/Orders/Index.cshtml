@@ -1,0 +1,55 @@
+﻿@model IEnumerable<AppDev.Models.Order>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="text-primary">Orders</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <span class="text-dark">@Html.DisplayNameFor(model => model.Id)</span>
+            </th>
+            <th>
+                <span class="text-dark">@Html.DisplayNameFor(model => model.Customer)</span>
+            </th>
+            <th>
+                <span class="text-dark">@Html.DisplayNameFor(model => model.Customer.Email)</span>
+            </th>
+            <th>
+                <span class="text-dark">@Html.DisplayNameFor(model => model.TotalPrice)</span>
+            </th>
+            <th>
+                <span class="text-dark">@Html.DisplayNameFor(model => model.Status)</span>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <span class="text-dark">@Html.DisplayFor(modelItem => item.Id)</span>
+                </td>
+                <td>
+                    <span class="text-dark">@Html.DisplayFor(modelItem => item.FullName)</span>
+                </td>
+                <td>
+                    <span class="text-dark">@Html.DisplayFor(modelItem => item.Customer.Email)</span>
+                </td>
+                <td>
+                    <span class="text-dark">@Html.DisplayFor(modelItem => item.TotalPrice)</span>
+                </td>
+                <td>
+                    <span class="text-dark">@Html.DisplayFor(modelItem => item.Status)</span>
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-secondary">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

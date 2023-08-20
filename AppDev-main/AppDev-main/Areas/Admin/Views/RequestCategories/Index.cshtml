@@ -1,0 +1,50 @@
+﻿@model IEnumerable<AppDev.Models.RequestCategory>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 style="color: #ff5050;">List of requests</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th style="color: #cccccc;">
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th style="color: #cccccc;">
+                @Html.DisplayNameFor(model => model.IsApproved)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                @if (item.IsApproved == true)
+                {
+                    <td><span style="color: #33cc33;">Yes</span></td>
+                }
+                else if (item.IsApproved == null)
+                {
+                    <td>
+                        <a asp-action="Approve" asp-route-id="@item.Id" style="color: #ffcc66;">Pending</a>
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        <a asp-action="Approve" asp-route-id="@item.Id" style="color: #ff5050;">No</a>
+                    </td>
+                }
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Id" style="color: #007bff;">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
