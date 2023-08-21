@@ -32,7 +32,6 @@ namespace AppDev.Areas.Admin.Controllers
 
             ViewData["Title"] = "Customer Accounts";
             ViewData["ReturnUrl"] = HttpContext.Request.Path;
-
             return View("Users", users);
         }
 
@@ -84,7 +83,7 @@ namespace AppDev.Areas.Admin.Controllers
 
             if (!permission)
             {
-                ModelState.AddModelError("", "Cannot reset password. Permission denied.");
+                ModelState.AddModelError("", "Cannot reset password,. Permission denied.");
                 return View(model);
             }
 
@@ -97,13 +96,14 @@ namespace AppDev.Areas.Admin.Controllers
                 foreach (var error in result.Errors)
                 {
                     ModelState.AddModelError("", error.Description);
+                    return View(model);
                 }
-
-                return View(model);
             }
 
-            // Password reset succeeded, redirect to a success page or login page.
-            return RedirectToAction("ResetPasswordConfirmation", "Account");
+            if (returnUrl != null)
+                return Redirect(returnUrl);
+
+            return RedirectToAction(nameof(Index));
         }
     }
 }
