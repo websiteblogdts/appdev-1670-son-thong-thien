@@ -4,12 +4,12 @@
     ViewData["Title"] = "Index";
 }
 
-<h1 class="text-primary">List of requests</h1>
+<h1 class="text-white">List of requests</h1>
 
 <p>
     <a class="btn btn-primary" asp-action="Create">Create New</a>
 </p>
-<table class="table">
+<table class="table text-white">
     <thead>
         <tr>
             <th>
@@ -33,7 +33,7 @@
                 </td>
                 @if (item.IsApproved == null)
                 {
-                    <td class="text-warning">
+                    <td>
                         Pending
                     </td>
                     <td>
@@ -46,7 +46,7 @@
                 {
                     if (item.IsApproved == true)
                     {
-                        <td class="text-success">Approved</td>
+                        <td>Approved</td>
                     }
                     else
                     {

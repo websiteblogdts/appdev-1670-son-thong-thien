@@ -44,7 +44,10 @@
                         <p class="card-text">Price: <span class="fw-bold">&#36;@item.Price</span></p>
                     </div>
                     <div class="card-footer">
-                        <button name="addToCartBtn" class="btn btn-primary px-1" onclick="addItem(@item.Id, 1)">Add</button>
+                        @if (User.IsInRole(Roles.User))
+                        {
+                            <button name="addToCartBtn" class="btn btn-primary px-1" onclick="addItem(@item.Id, 1)">Add</button>
+                        }
                         <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary">Details</a>
                     </div>
                 </div>

@@ -4,61 +4,61 @@
     ViewData["Title"] = "Details";
 }
 
-<h1 class="text-primary">Details</h1>
+<h1 class="text-white">Details</h1>
 
 <div>
-    <h4 class="text-secondary">Order</h4>
+    <h4 class="text-white">Order</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
-            <span class="text-dark">@Html.DisplayNameFor(model => model.Status)</span>
+            <span class="text-white">@Html.DisplayNameFor(model => model.Status)</span>
         </dt>
         <dd class="col-sm-10">
-            <span class="text-dark">@Html.DisplayFor(model => model.Status)</span>
+            <span class="text-white">@Html.DisplayFor(model => model.Status)</span>
         </dd>
         <dt class="col-sm-2">
-            <span class="text-dark">@Html.DisplayNameFor(model => model.Customer)</span>
+            <span class="text-white">@Html.DisplayNameFor(model => model.Customer)</span>
         </dt>
         <dd class="col-sm-10">
-            <span class="text-dark">@Html.DisplayFor(model => model.FullName)</span>
+            <span class="text-white">@Html.DisplayFor(model => model.FullName)</span>
         </dd>
         <dt class="col-sm-2">
-            <span class="text-dark">@Html.DisplayNameFor(model => model.Customer.Email)</span>
+            <span class="text-white">@Html.DisplayNameFor(model => model.Customer.Email)</span>
         </dt>
         <dd class="col-sm-10">
-            <span class="text-dark">@Html.DisplayFor(model => model.Customer.Email)</span>
+            <span class="text-white">@Html.DisplayFor(model => model.Customer.Email)</span>
         </dd>
         <dt class="col-sm-2">
-            <span class="text-dark">@Html.DisplayNameFor(model => model.Address)</span>
+            <span class="text-white">@Html.DisplayNameFor(model => model.Address)</span>
         </dt>
         <dd class="col-sm-10">
-            <span class="text-dark">@Html.DisplayFor(model => model.Address)</span>
+            <span class="text-white">@Html.DisplayFor(model => model.Address)</span>
         </dd>
         <dt class="col-sm-2">
-            <span class="text-dark">@Html.DisplayNameFor(model => model.TotalPrice)</span>
+            <span class="text-white">@Html.DisplayNameFor(model => model.TotalPrice)</span>
         </dt>
         <dd class="col-sm-10">
-            <span class="text-dark">@Html.DisplayFor(model => model.TotalPrice)</span>
+            <span class="text-white">@Html.DisplayFor(model => model.TotalPrice)</span>
         </dd>
         <dt class="col-sm-2">
-            <span class="text-dark">@Html.DisplayNameFor(model => model.OrderItems)</span>
+            <span class="text-white">@Html.DisplayNameFor(model => model.OrderItems)</span>
         </dt>
         <dd class="col-sm-10">
             <table class="table">
                 <thead>
                     <tr>
-                        <th class="text-dark">Items</th>
-                        <th class="text-dark">Price</th>
-                        <th class="text-dark">Quantity</th>
+                        <th class="text-white">Items</th>
+                        <th class="text-white">Price</th>
+                        <th class="text-white">Quantity</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach (var item in Model.OrderItems)
                     {
                         <tr>
-                            <td class="text-dark">@Html.DisplayFor(modelItem => item.Book.Title)</td>
-                            <td class="text-dark">@Html.DisplayFor(modelItem => item.Price)</td>
-                            <td class="text-dark">@Html.DisplayFor(modelItem => item.Quantity)</td>
+                            <td class="text-white">@Html.DisplayFor(modelItem => item.Book.Title)</td>
+                            <td class="text-white">@Html.DisplayFor(modelItem => item.Price)</td>
+                            <td class="text-white">@Html.DisplayFor(modelItem => item.Quantity)</td>
                         </tr>
                     }
                 </tbody>
