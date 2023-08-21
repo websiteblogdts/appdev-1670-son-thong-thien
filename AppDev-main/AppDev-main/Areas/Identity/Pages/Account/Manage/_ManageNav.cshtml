@@ -10,7 +10,7 @@
         <li class="nav-item"><a class="nav-link" id="orders" asp-action="Index" asp-controller="Orders" asp-area="" style="color: #ffcc66;">Orders</a></li>
     }
     <li class="nav-item"><a class="nav-link @ManageNavPages.EmailNavClass(ViewContext)" id="email" asp-page="./Email" style="color: #ff5050;">Email</a></li>
-    <li class="nav-item"><a class="nav-link @ManageNavPages.ChangePasswordNavClass(ViewContext)" id="change-password" asp-page="./ChangePassword" style="color: #007bff;">Password</a></li>
+    <li class="nav-item"><a class="nav-link @ManageNavPages.ChangePasswordNavClass(ViewContext)" id="change-password" asp-page="./ChangePassword" style="color: #ff4333;">Password</a></li>
     @if (hasExternalLogins)
     {
         <li id="external-logins" class="nav-item"><a id="external-login" class="nav-link @ManageNavPages.ExternalLoginsNavClass(ViewContext)" asp-page="./ExternalLogins" style="color: #ff9900;">External logins</a></li>
