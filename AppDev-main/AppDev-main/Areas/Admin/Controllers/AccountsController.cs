@@ -83,7 +83,7 @@ namespace AppDev.Areas.Admin.Controllers
 
             if (!permission)
             {
-                ModelState.AddModelError("", "Cannot reset password. Permission denied.");
+                ModelState.AddModelError("", "Cannot reset password,. Permission denied.");
                 return View(model);
             }
 
