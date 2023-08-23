@@ -9,18 +9,18 @@
 @if (Model.Orders.Count() == 0)
 {
     <div class="text-center">
-        <p class="text-black">Your cart is emply, please add things to cart before checking out.</p>
+        <p class="text-white">Your cart is emply, please add things to cart before checking out.</p>
         <a class="btn btn-primary" asp-action="Index" asp-controller="Books">Continue to browser</a>
     </div>
 }
 else
 {
-    <div class="row justify-content-center">
-        <div class="col-lg-8 col-md-7 my-3">
+    <div class="row justify-content-center text-white">
+        <div class="col-lg-8 col-md-7 my-3 text-white">
             <h4>Orders</h4>
             @foreach (var order in Model.Orders)
             {
-                <table class="table table-hover caption-top">
+                <table class="table table-hover caption-top text-white">
                     <caption class="h5">@order.Store.Name</caption>
                     <thead>
                         <tr>
@@ -64,7 +64,7 @@ else
                 </table>
             }
         </div>
-        <div class="col-lg-4 col-md-5 my-3">
+        <div class="col-lg-4 col-md-5 my-3 text-white">
             <form method="post">
                 <h4>Shipping infomation</h4>
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>

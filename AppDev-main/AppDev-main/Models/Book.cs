@@ -27,5 +27,11 @@ namespace AppDev.Models
         public int? ImageId { get; set; }
 
         public Image? Image { get; set; } = null!;
+
+       /* public IFormFile UploadImage { get; set; } = null!;
+
+
+        public IFormFile UploadNewImage { get; set; } = null!;*/
+
     }
 }

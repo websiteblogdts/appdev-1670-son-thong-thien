@@ -4,18 +4,18 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1 class="text-primary">Edit</h1>
+<h1 class="text-primary text-white">Edit</h1>
 
 <h4 class="text-white">RequestCategory</h4>
 <hr />
 <div class="row">
     <div class="col-md-4 text-white">
         <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div asp-validation-summary="ModelOnly" class="text-danger text-white"></div>
             <input type="hidden" asp-for="Id" />
             <input type="hidden" asp-for="StoreOwnerId" />
             <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
+                <label asp-for="Name" class="control-label text-white"></label>
                 <input asp-for="Name" class="form-control" />
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
@@ -27,7 +27,7 @@
 </div>
 
 <div>
-    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    <a asp-action="Index" class="btn btn-secondary text-white">Back to List</a>
 </div>
 
 @section Scripts {

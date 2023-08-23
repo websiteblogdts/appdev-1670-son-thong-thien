@@ -13,24 +13,26 @@
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Name)
         </dt>
-        <dd class="col-sm-10">
+        <dd class="col-sm-10 text-white">
             <span class="text-white">@Html.DisplayFor(model => model.Name)</span>
         </dd>
-        <dt class="col-sm-2">
+        <dt class="col-sm-2 text-white">
             @Html.DisplayNameFor(model => model.IsApproved)
         </dt>
-        <dd class="col-sm-10">
+        <dd class="col-sm-10 text-white">
             <span class="text-white">@Html.DisplayFor(model => model.IsApproved)</span>
         </dd>
-        <dt class="col-sm-2">
+        <dt class="col-sm-2 text-white">
             @Html.DisplayNameFor(model => model.Message)
         </dt>
-        <dd class="col-sm-10">
+        <dd class="col-sm-10 text-white">
             <span class="text-white">@Html.DisplayFor(model => model.Message)</span>
         </dd>
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary">Edit</a> |
-    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+
+@*    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary">Edit</a> |
+*@   <a asp-action="Index" class="btn btn-secondary">Back to List</a>
 </div>
+

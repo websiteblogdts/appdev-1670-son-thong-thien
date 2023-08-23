@@ -2,7 +2,7 @@
 
 namespace AppDev.Areas.StoreOwner.ViewModels
 {
-    public class BookCreate
+    public class BookEdit
     {
         [StringLength(255)]
         public string Title { get; set; } = null!;
@@ -14,8 +14,8 @@ namespace AppDev.Areas.StoreOwner.ViewModels
         public double Price { get; set; }
 
         public string StoreId { get; set; } = null!;
+        public int? ImageId { get; set; }
 
-        public IFormFile UploadImage { get; set; } = null!;
-
+        public IFormFile UploadNewImage { get; set; } = null!;
     }
 }

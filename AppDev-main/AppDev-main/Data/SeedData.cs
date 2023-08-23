@@ -45,18 +45,18 @@ namespace AppDev.Data
 
             List<Category> categories = new()
             {
-                new Category()
+              /*  new Category()
                 {
-                    Name = "Truyen Tranh"
+                    Name = "EducationBook"
                 },
                 new Category()
                 {
-                    Name = "Co tich",
+                    Name = "HononBook",
                 },
                 new Category()
                 {
-                    Name= "Tieu thuyet"
-                }
+                    Name= "RomaticBook"
+                }*/
             };
 
             foreach (var category in categories)
