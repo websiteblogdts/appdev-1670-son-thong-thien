@@ -45,7 +45,7 @@ namespace AppDev.Data
 
             List<Category> categories = new()
             {
-              /*  new Category()
+                new Category()
                 {
                     Name = "EducationBook"
                 },
@@ -56,7 +56,7 @@ namespace AppDev.Data
                 new Category()
                 {
                     Name= "RomaticBook"
-                }*/
+                }
             };
 
             foreach (var category in categories)
